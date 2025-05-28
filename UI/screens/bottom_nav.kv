@@ -1,0 +1,21 @@
+<BottomNav>:
+    size_hint_y: None
+    height: '60dp'
+    spacing: '20dp'
+    padding: '10dp'
+
+    MDIconButton:
+        icon: "account-group-outline"
+        on_press: app.root.current = 'socializing'
+
+    MDIconButton:
+        icon: "run-fast"
+        on_press: app.root.current = 'tracking'
+
+    MDIconButton:
+        icon: "forum-outline"
+        on_press: app.root.current = 'community'
+
+    MDIconButton:
+        icon: "account-circle-outline"
+        on_press: app.root.current = 'mypage'

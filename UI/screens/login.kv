@@ -1,0 +1,59 @@
+<LoginScreen>:
+    name: "login"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # White background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        padding: "24dp"
+        pos_hint: {"center_y": 0.5}
+        size_hint_y: None
+        height: self.minimum_height
+
+        MDLabel:
+            text: "Welcome to Everything Wellness App"
+            halign: "center"
+            font_style: "Title"
+            theme_text_color: "Primary"
+
+        MDTextField:
+            id: username
+            hint_text: "Username"
+            icon_left: "account"
+            mode: "outlined"
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            password: True
+            icon_left: "lock"
+            mode: "outlined"
+            on_text_validate: app.login(username.text, self.text)
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": 0.5}
+            on_press: app.login(username.text, password.text)
+
+            MDButtonText:
+                text: "Login"
+
+        MDLabel:
+            id: error_message
+            text: ""
+            halign: "center"
+            theme_text_color: "Error"
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": 0.5}
+            on_press: app.root.current = "register"
+
+            MDButtonText:
+                text: "Register"

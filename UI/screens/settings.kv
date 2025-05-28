@@ -1,0 +1,18 @@
+<SettingsScreen>:
+    name: 'settings'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Settings Screen'
+        Button:
+            text: 'Go to Socializing'
+            on_press: app.root.current = 'socializing'
+        Button:
+            text: 'Go to Tracking'
+            on_press: app.root.current = 'tracking'
+        Button:
+            text: 'Go to Community'
+            on_press: app.root.current = 'community'
+        Button:
+            text: 'Go to My Page'
+            on_press: app.root.current = 'mypage'

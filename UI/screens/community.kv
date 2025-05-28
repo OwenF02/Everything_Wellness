@@ -1,0 +1,48 @@
+<CommunityScreen>:
+    name: 'community'
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Background white
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Title Label
+        Label:
+            text: 'Community'
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'top': 0.95}
+            font_size: '28sp'
+            color: 0, 0, 0, 1
+
+        # Settings Button
+        Button:
+            text: 'Settings'
+            size_hint: None, None
+            size: '100dp', '40dp'
+            pos_hint: {'right': 0.98, 'top': 0.95}
+            background_color: 0.1, 0.6, 1, 1
+            background_normal: ''
+            background_down: ''
+            font_size: '16sp'
+            color: 1, 1, 1, 1
+
+            on_press: app.root.current = 'settings'
+
+        # Placeholder for community content
+        Label:
+            text: 'Coming soon...'
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            font_size: '20sp'
+            color: 0.4, 0.4, 0.4, 1
+
+        # Bottom Navigation
+        BottomNav:
+            size_hint_y: None
+            height: '50dp'
+            pos_hint: {'x': 0, 'y': 0}

@@ -1,0 +1,45 @@
+<SocializingScreen>:
+    name: "socializing"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # White background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        size_hint: 1, 1
+
+
+        MDTopAppBar:
+            title: "Timeline"
+            elevation: 10
+            size_hint_y: None
+            height: "56dp"
+
+        ScrollView:
+            id: scroll_view
+            do_scroll_x: False
+            do_scroll_y: True
+
+            MDBoxLayout:
+                id: posts_container
+                orientation: "vertical"
+                spacing: "10dp"
+                padding: "10dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+        # BottomNav at bottom
+        BottomNav:
+
+    FloatLayout:
+        MDIconButton:
+            icon: "plus"
+            user_font_size: "32sp"
+            pos_hint: {"right": 0.95, "y": 0.1}
+            on_press: app.add_post()
+

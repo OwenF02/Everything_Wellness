@@ -1,0 +1,32 @@
+<FoodSearchScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        
+        # Search bar and scan button layout
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '50dp'
+            
+            TextInput:
+                id: food_search_input
+                hint_text: 'Search for food...'
+                multiline: False
+                on_text: root.update_search_results(self.text)
+
+            Button:
+                text: 'Scan'
+                on_press: root.start_barcode_scanner()
+
+        # Results list for relevant food items
+        ScrollView:
+            size_hint_y: None
+            height: '400dp'
+            
+            GridLayout:
+                id: search_results
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height

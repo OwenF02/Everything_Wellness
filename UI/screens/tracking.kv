@@ -1,0 +1,131 @@
+<TrackingScreen>:
+    name: "tracking"
+
+    canvas.before:
+        Color: 
+            rgba: 1, 1, 1, 1  # White background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: "10dp"
+                spacing: "20dp"
+
+                # Meal Tracking Card
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_x: 0.95
+                    pos_hint: {"center_x": 0.5}
+                    padding: "10dp"
+                    spacing: "10dp"
+                    elevation: 5
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Meal Tracking"
+                        font_style: "Headline"
+                        theme_text_color: "Primary"
+                        halign: "center"
+
+                    MDList:
+                        id: meal_entries
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        MDListItem:
+                            text: "Meal 1"
+                            MDIconButton:
+                                icon: "plus-circle"
+                                on_press: app.root.current = "FoodSearchScreen"
+
+                        MDListItem:
+                            text: "Meal 2"
+                            MDIconButton:
+                                icon: "plus-circle"
+                                on_press: app.root.current = "FoodSearchScreen"
+
+                        MDListItem:
+                            text: "Meal 3"
+                            MDIconButton:
+                                icon: "plus-circle"
+                                on_press: app.root.current = "FoodSearchScreen"
+
+                    MDButton:
+                        text: "Add Meal"
+                        pos_hint: {"center_x": 0.5}
+                        on_press: root.add_meal_entry()
+
+                # Exercise Tracking Card
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_x: 0.95
+                    pos_hint: {"center_x": 0.5}
+                    padding: "10dp"
+                    spacing: "10dp"
+                    elevation: 5
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Track Exercises"
+                        font_style: "Headline"
+                        theme_text_color: "Primary"
+                        halign: "center"
+
+                    MDTextField:
+                        id: exercise_input
+                        hint_text: "Enter exercise"
+                        mode: "outlined"
+                        icon_left: "run-fast"
+
+                    MDTextField:
+                        id: duration_input
+                        hint_text: "Duration (minutes)"
+                        mode: "outlined"
+                        icon_left: "timer-outline"
+
+                    MDButton:
+                        text: "Add Exercise"
+                        style: "filled"
+                        pos_hint: {"center_x": 0.5}
+                        on_press: root.add_exercise()
+
+                # Exercise Log Section
+                MDCard:
+                    orientation: "vertical"
+                    size_hint_x: 0.95
+                    pos_hint: {"center_x": 0.5}
+                    padding: "10dp"
+                    spacing: "10dp"
+                    elevation: 5
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Exercise Log"
+                        font_style: "Headline"
+                        theme_text_color: "Primary"
+                        halign: "center"
+
+                    MDList:
+                        id: exercise_list
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                    MDButton:
+                        text: "Show Exercise Log"
+                        style: "filled"
+                        pos_hint: {"center_x": 0.5}
+                        on_press: root.show_exercise_log()
+
+        BottomNav:

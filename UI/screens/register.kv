@@ -1,0 +1,57 @@
+<RegisterScreen>:
+    name: "register"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # White background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "20dp"
+        pos_hint: {"center_y": 0.5}
+        size_hint_y: None
+        height: self.minimum_height
+
+        MDLabel:
+            text: "Register"
+            font_style: "Headline"
+            halign: "center"
+            theme_text_color: "Primary"
+
+        MDTextField:
+            hint_text: "Username"
+            id: username
+            icon_left: "account"
+            mode: "outlined"
+
+        MDTextField:
+            id: password_input
+            hint_text: "Password"
+            password: True
+            icon_left: "lock"
+            mode: "outlined"
+
+        MDTextField:
+            hint_text: "Confirm Password"
+            password: True
+            icon_left: "lock-check"
+            mode: "outlined"
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": 0.5}
+            on_press:
+                app.register(username.text, password_input.text, confirm_password_input.text)
+            MDButtonText:
+                text: "Register"
+
+        MDButton:
+            style: "outlined"
+            pos_hint: {"center_x": 0.5}
+            on_press: app.root.current = "login"
+            MDButtonText:
+                text: "Back to Login"

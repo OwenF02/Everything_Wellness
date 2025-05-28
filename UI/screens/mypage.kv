@@ -1,0 +1,89 @@
+<MyPageScreen>:
+    name: "mypage"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # white
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        padding: "20dp"
+
+        MDTopAppBar:
+            title: "My Page"
+            elevation: 8
+            left_action_items: [["account", lambda x: None]]
+            md_bg_color: 1, 1, 1, 1  # White to match screen
+            specific_text_color: 0, 0, 0, 1  # Make text black
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "10dp"
+            size_hint_y: None
+            height: "150dp"
+            padding: "10dp"
+
+            MDLabel:
+                text: "Welcome, [b]User[/b]"
+                markup: True
+                halign: "center"
+                font_style: "Headline"
+
+            MDLabel:
+                text: "Today's Stats"
+                halign: "center"
+                theme_text_color: "Secondary"
+
+        GridLayout:
+            cols: 3
+            spacing: "10dp"
+            size_hint_y: None
+            height: "100dp"
+
+            MDCard:
+                orientation: "vertical"
+                padding: "10dp"
+                MDLabel:
+                    text: "Calories"
+                    theme_text_color: "Secondary"
+                MDLabel:
+                    text: "2200"
+
+            MDCard:
+                orientation: "vertical"
+                padding: "10dp"
+                MDLabel:
+                    text: "Water"
+                    theme_text_color: "Secondary"
+                MDLabel:
+                    text: "1200 ml"
+
+            MDCard:
+                orientation: "vertical"
+                padding: "10dp"
+                MDLabel:
+                    text: "Exercises"
+                    theme_text_color: "Secondary"
+                MDLabel:
+                    text: "3"
+
+        Button:
+            text: "Settings"
+            size_hint: None, None
+            size: "120dp", "40dp"
+            pos_hint: {"center_x": 0.5}
+            on_press: app.root.current = "settings"
+            background_normal: ""
+            background_color: 0.2, 0.6, 1, 1
+            color: 1, 1, 1, 1
+            font_size: "16sp"
+
+        Widget:
+
+        BottomNav:
+            size_hint_y: None
+            height: "50dp"
